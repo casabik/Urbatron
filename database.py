@@ -1,27 +1,7 @@
-database = None
+from models import *
+from peewee import *
 
-class User (database):
-    __tablename__ = 'users'
-    id = None
-    login = None
-    password = None
+with connection:
+    connection.create_tables([User, Place, Parking, Booking])
 
-
-class Token(database):
-    __tablename__ = 'auth_token'
-    id = None
-    token = None
-
-class Parking(database):
-    __tablename__ = 'parking'
-    id = None
-    name = None
-    latitude = None
-    longitude = None
-
-class Place(database):
-    __tablename__ = 'place'
-    id = None
-    name = None
-    latitude = None
-    longitude = None
+print("Done")
